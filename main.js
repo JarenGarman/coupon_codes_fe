@@ -239,13 +239,14 @@ function getMerchantCoupons(event) {
   fetchData(`merchants/${merchantId}/coupons`)
   .then(couponData => {
     console.log("Coupon data from fetch:", couponData)
-    displayMerchantCoupons(couponData.data);
+    displayMerchantCoupons(couponData.data, merchantId);
   })
 }
 
-function displayMerchantCoupons(coupons) {
+function displayMerchantCoupons(coupons, merchantId) {
+  showingText.innerText = `All Coupons for Merchant #${merchantId}`
   show([couponsView])
-  hide([merchantsView, itemsView])
+  hide([merchantsView, itemsView, addNewButton])
 
   couponsView.innerHTML = ''
 
