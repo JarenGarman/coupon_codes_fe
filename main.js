@@ -257,12 +257,18 @@ function displayMerchantCoupons(coupons, merchantId) {
     } else {
       discountString = `$${coupon.attributes.value} discount`
     }
+    let activeString
+    if (coupon.attributes.active) {
+      activeString = "Active"
+    } else {
+      activeString = "Inactive"
+    }
     couponsView.innerHTML += `
       <article class="coupon" id="coupon-${coupon.id}">
           <h2>${coupon.attributes.name}</h2>
           <p>Code: <code>${coupon.attributes.code}</code></p>
           <p> ${discountString}</p>
-          <p>Active: ${coupon.attributes.active}</p>
+          <p>${activeString}</p>
           <p>Uses: ${coupon.attributes.use_count}</p>
         </article>
     `
