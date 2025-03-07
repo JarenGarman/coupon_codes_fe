@@ -251,11 +251,17 @@ function displayMerchantCoupons(coupons, merchantId) {
   couponsView.innerHTML = ''
 
   coupons.forEach(coupon => {
+    let discountString
+    if (coupon.attributes.discount_type === "percent") {
+      discountString = `${coupon.attributes.value}% discount`
+    } else {
+      discountString = `$${coupon.attributes.value} discount`
+    }
     couponsView.innerHTML += `
       <article class="coupon" id="coupon-${coupon.id}">
           <h2>${coupon.attributes.name}</h2>
           <p>Code: <code>${coupon.attributes.code}</code></p>
-          <p>${coupon.attributes.value} ${coupon.attributes.discount_type} discount</p>
+          <p> ${discountString}</p>
           <p>Active: ${coupon.attributes.active}</p>
         </article>
     `
