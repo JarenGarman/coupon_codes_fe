@@ -263,6 +263,7 @@ function displayMerchantCoupons(coupons, merchantId) {
           <p>Code: <code>${coupon.attributes.code}</code></p>
           <p> ${discountString}</p>
           <p>Active: ${coupon.attributes.active}</p>
+          <p>Uses: ${coupon.attributes.use_count}</p>
         </article>
     `
   })
