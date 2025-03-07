@@ -72,7 +72,8 @@ function editData(endpoint, body) {
 
 export {
   deleteData,
-  editData, fetchData,
+  editData,
+  fetchData,
   postData
 };
 
