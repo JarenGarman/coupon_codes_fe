@@ -247,9 +247,19 @@ function displayMerchantCoupons(coupons) {
   show([couponsView])
   hide([merchantsView, itemsView])
 
-  couponsView.innerHTML = `
-    <p>Coupon data will go here.</p>
-  `
+  couponsView.innerHTML = ''
+
+  coupons.forEach(coupon => {
+    couponsView.innerHTML += `
+      <article class="coupon" id="coupon-${coupon.id}">
+          <h2>${coupon.attributes.name}</h2>
+          <p>Code: <code>${coupon.attributes.code}</code></p>
+          <p>${coupon.attributes.value} ${coupon.attributes.discount_type} discount</p>
+          <p>Active: ${coupon.attributes.active}</p>
+        </article>
+    `
+  })
+
 }
 
 //Helper Functions
