@@ -1,4 +1,4 @@
-import {showStatus} from './errorHandling'
+import { showStatus } from './errorHandling';
 
 // Your fetch requests will live here
 const base = 'http://localhost:3000/api/v1/'
@@ -71,9 +71,8 @@ function editData(endpoint, body) {
 }
 
 export {
-  fetchData,
-  postData,
   deleteData,
-  editData
-}
+  editData, fetchData,
+  postData
+};
 

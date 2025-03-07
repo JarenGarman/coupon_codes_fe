@@ -1,6 +1,6 @@
+import { deleteData, editData, fetchData, postData } from './apiCalls'
+import { showStatus } from './errorHandling'
 import './style.css'
-import {fetchData, postData, deleteData, editData} from './apiCalls'
-import {showStatus} from './errorHandling'
 
 //Sections, buttons, text
 const couponsView = document.querySelector("#coupons-view")

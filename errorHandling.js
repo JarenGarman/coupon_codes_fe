@@ -19,5 +19,5 @@ function showStatus(message, isSuccessful) {
   }
 
   export {
-    showStatus
-  }
+  showStatus
+}
