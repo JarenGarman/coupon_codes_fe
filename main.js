@@ -235,30 +235,29 @@ function displayMerchantItems(event) {
 
 function getMerchantCoupons(event) {
   let merchantId = event.target.closest("article").id.split('-')[1]
-  console.log("Merchant ID:", merchantId)
-
-  let merchant
   fetchData(`merchants/${merchantId}`)
   .then(merchantData => {
-    console.log("Merchant data from fetch:", merchantData)
-    merchant = merchantData.data
-    console.log("Merchant from fetch:", merchant)
-  })
-  fetchData(`merchants/${merchantId}/coupons`)
-  .then(couponData => {
-    console.log("Coupon data from fetch:", couponData)
-    displayMerchantCoupons(couponData.data, merchant);
+    const merchant = merchantData.data
+    fetchData(`merchants/${merchantId}/coupons`)
+    .then(couponData => {
+      displayMerchantCoupons(couponData.data, merchant);
+    })
   })
 }
 
 function displayMerchantCoupons(coupons, merchant) {
   showingText.innerText = `All Coupons for Merchant #${merchant.id}`
-  merchantCouponsCount.innerText = `Total Coupons: ${merchant.attributes.coupons_count} | Total Invoices with Coupons: ${merchant.attributes.invoice_coupon_count}`
+  merchantCouponsCount.innerText = `${merchant.attributes.coupons_count} Coupons | ${merchant.attributes.invoice_coupon_count} Invoices with Coupons`
   show([couponsView, merchantCouponsCount])
   hide([merchantsView, itemsView, addNewButton])
 
   couponsView.innerHTML = ''
 
+  if (coupons.length === 0) {
+    couponsView.innerHTML = `<article class="empty-coupons">
+                               <p>No coupons for Merchant #${merchant.id}</p>
+                             <article>`
+  }
   coupons.forEach(coupon => {
     let discountString
     if (coupon.attributes.discount_type === "percent") {
@@ -278,7 +277,7 @@ function displayMerchantCoupons(coupons, merchant) {
           <p>Code: <code>${coupon.attributes.code}</code></p>
           <p> ${discountString}</p>
           <p>${activeString}</p>
-          <p>Uses: ${coupon.attributes.use_count}</p>
+          <p>${coupon.attributes.use_count} Uses</p>
         </article>
     `
   })

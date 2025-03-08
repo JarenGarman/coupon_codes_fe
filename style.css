@@ -210,6 +210,13 @@ h3 {
   color: var(--red);
 }
 
+/* Coupons View */
+
+.empty-coupons {
+  padding: 39%;
+  background-color: lightgrey;
+}
+
 /* STATUS MESSAGES */
 .success {
   color: var(--green);
