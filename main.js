@@ -10,6 +10,7 @@ const merchantsNavButton = document.querySelector("#merchants-nav")
 const itemsNavButton = document.querySelector("#items-nav")
 const addNewButton = document.querySelector("#add-new-button")
 const showingText = document.querySelector("#showing-text")
+const merchantCouponsCount = document.querySelector("#merchant-coupons-count")
 
 //Form elements
 const merchantForm = document.querySelector("#new-merchant-form")
@@ -143,7 +144,7 @@ function showMerchantsView() {
   addRemoveActiveNav(merchantsNavButton, itemsNavButton)
   addNewButton.dataset.state = 'merchant'
   show([merchantsView, addNewButton])
-  hide([itemsView])
+  hide([itemsView, merchantCouponsCount])
   displayMerchants(merchants)
 }
 
@@ -152,14 +153,14 @@ function showItemsView() {
   addRemoveActiveNav(itemsNavButton, merchantsNavButton)
   addNewButton.dataset.state = 'item'
   show([itemsView])
-  hide([merchantsView, merchantForm, addNewButton, couponsView])
+  hide([merchantsView, merchantForm, addNewButton, couponsView, merchantCouponsCount])
   displayItems(items)
 }
 
 function showMerchantItemsView(id, items) {
   showingText.innerText = `All Items for Merchant #${id}`
   show([itemsView])
-  hide([merchantsView, addNewButton, couponsView])
+  hide([merchantsView, addNewButton, couponsView, merchantCouponsCount])
   addRemoveActiveNav(itemsNavButton, merchantsNavButton)
   addNewButton.dataset.state = 'item'
   displayItems(items)
@@ -236,16 +237,24 @@ function getMerchantCoupons(event) {
   let merchantId = event.target.closest("article").id.split('-')[1]
   console.log("Merchant ID:", merchantId)
 
+  let merchant
+  fetchData(`merchants/${merchantId}`)
+  .then(merchantData => {
+    console.log("Merchant data from fetch:", merchantData)
+    merchant = merchantData.data
+    console.log("Merchant from fetch:", merchant)
+  })
   fetchData(`merchants/${merchantId}/coupons`)
   .then(couponData => {
     console.log("Coupon data from fetch:", couponData)
-    displayMerchantCoupons(couponData.data, merchantId);
+    displayMerchantCoupons(couponData.data, merchant);
   })
 }
 
-function displayMerchantCoupons(coupons, merchantId) {
-  showingText.innerText = `All Coupons for Merchant #${merchantId}`
-  show([couponsView])
+function displayMerchantCoupons(coupons, merchant) {
+  showingText.innerText = `All Coupons for Merchant #${merchant.id}`
+  merchantCouponsCount.innerText = `Total Coupons: ${merchant.attributes.coupons_count} | Total Invoices with Coupons: ${merchant.attributes.invoice_coupon_count}`
+  show([couponsView, merchantCouponsCount])
   hide([merchantsView, itemsView, addNewButton])
 
   couponsView.innerHTML = ''
