@@ -246,6 +246,8 @@ function getMerchantCoupons(event) {
 
 function displayMerchantCoupons(coupons, merchantId) {
   showingText.innerText = `All Coupons for Merchant #${merchantId}`
+  const merchantAttributes = getMerchantAttributes(merchantId)
+  merchantCouponsCount.innerText = `Total Coupons: ${merchantAttributes.coupons_count} | Total Invoices with Coupons: ${merchantAttributes.invoice_coupon_count}`
   show([couponsView, merchantCouponsCount])
   hide([merchantsView, itemsView, addNewButton])
 
