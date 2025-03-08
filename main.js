@@ -237,17 +237,23 @@ function getMerchantCoupons(event) {
   let merchantId = event.target.closest("article").id.split('-')[1]
   console.log("Merchant ID:", merchantId)
 
+  let merchant
+  fetchData(`merchants/${merchantId}`)
+  .then(merchantData => {
+    console.log("Merchant data from fetch:", merchantData)
+    merchant = merchantData.data
+    console.log("Merchant from fetch:", merchant)
+  })
   fetchData(`merchants/${merchantId}/coupons`)
   .then(couponData => {
     console.log("Coupon data from fetch:", couponData)
-    displayMerchantCoupons(couponData.data, merchantId);
+    displayMerchantCoupons(couponData.data, merchant);
   })
 }
 
-function displayMerchantCoupons(coupons, merchantId) {
-  showingText.innerText = `All Coupons for Merchant #${merchantId}`
-  const merchantAttributes = getMerchantAttributes(merchantId)
-  merchantCouponsCount.innerText = `Total Coupons: ${merchantAttributes.coupons_count} | Total Invoices with Coupons: ${merchantAttributes.invoice_coupon_count}`
+function displayMerchantCoupons(coupons, merchant) {
+  showingText.innerText = `All Coupons for Merchant #${merchant.id}`
+  merchantCouponsCount.innerText = `Total Coupons: ${merchant.attributes.coupons_count} | Total Invoices with Coupons: ${merchant.attributes.invoice_coupon_count}`
   show([couponsView, merchantCouponsCount])
   hide([merchantsView, itemsView, addNewButton])
 
