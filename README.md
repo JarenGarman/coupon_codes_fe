@@ -68,7 +68,7 @@ You can now connect by opening the following URL in your browser: [http://localh
 
 ## Preview of App
 
-(Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off. gifs preferred!)
+![Coupon Codes Website Preview](assets/coupon_codes_screenshot.png)
 
 ## Context
 
