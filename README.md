@@ -1,6 +1,10 @@
 # Little Shop - Coupon Codes | Frontend Repo
 
-Link to your GitHub. Consider also providing LinkedIn link
+Jaren Garman
+
+[GitHub](https://github.com/JarenGarman)
+
+[LinkedIn](https://www.linkedin.com/in/jarengarman/)
 
 ## Abstract
 
