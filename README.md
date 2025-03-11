@@ -1,27 +1,93 @@
 # Little Shop - Coupon Codes | Frontend Repo
 
-Link to your GitHub. Consider also providing LinkedIn link
+Jaren Garman
+
+[GitHub](https://github.com/JarenGarman)
+
+[LinkedIn](https://www.linkedin.com/in/jarengarman/)
 
 ## Abstract
 
-(Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+This app is a demonstration of my abilities to expand on an existing API to add new features, all while following common web conventions like MVC, REST, and CRUD, as well as maintaining the existing styling of the codebase.
 
 ## Installation Instructions
 
-(What steps does a person have to take to get your app cloned down and running?)
+To run this app locally, you will need to clone down two separate repos. I recommend creating a new directory to store them in:
+
+```shell
+mkdir coupon_codes
+cd coupon_codes
+```
+
+### Backend
+
+#### Clone the [backend repo](https://github.com/JarenGarman/coupon_codes_be)
+
+```shell
+git clone https://github.com/JarenGarman/coupon_codes_be.git
+```
+
+#### Run the setup commands
+
+```shell
+bundle install
+rails db:{drop,create}
+rails runner ActiveRecord::Tasks::DatabaseTasks.load_seed
+rails db:migrate
+```
+
+#### Start the backend server
+
+```shell
+rails server
+```
+
+### Frontend
+
+#### Clone the [frontend repo](https://github.com/JarenGarman/coupon_codes_fe)
+
+```shell
+git clone https://github.com/JarenGarman/coupon_codes_fe.git
+```
+
+#### Run the setup command
+
+```shell
+npm install
+```
+
+#### Start the frontend server
+
+```shell
+npm run dev
+```
+
+### Connect
+
+You can now connect by opening the following URL in your browser: [http://localhost:5173/](http://localhost:5173/)
 
 ## Preview of App
 
-(Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off. gifs preferred!)
+![Coupon Codes Website Preview](assets/coupon_codes_screenshot.png)
 
 ## Context
 
-(Give some context for the project here. How long did you have to work on it? What specific work/improvements did you contribute to this FE application?)
+We were given just under a week to work on this project. I implemented brand new RESTful routes and logic with CRUD (deactivate instead of delete/destroy) functionality for coupons. I fixed up the frontend to make the correct calls to the backend and display the coupon data for a particular merchant while hiding other unnecessary info.
 
 ## Learning Goals
 
-(What were the learning goals of this project? What tech did you work with?)
+My learning goals for this project were to get a deeper understanding of the model/controller relationship and how to take advantage of it to write cleaner code. One of the solutions I found was making us of scopes in place of class methods.
 
 ## Wins + Challenges
 
-(What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+### Wins
+
+- Learning to use scopes
+- Building my own Postman suite to accompany automated tests
+- Maintaining existing styling
+
+### Challenges
+
+- Initial setup was quite tough
+  - Navigating new migrations
+  - Going back to change migrations when I realized I needed something else
