@@ -64,8 +64,7 @@ npm run dev
 
 ### Connect
 
-You can now connect by opening the following URL in your browser: [http://localhost:5173/](http://localhost:5173/
-)
+You can now connect by opening the following URL in your browser: [http://localhost:5173/](http://localhost:5173/)
 
 ## Preview of App
 
@@ -73,7 +72,7 @@ You can now connect by opening the following URL in your browser: [http://localh
 
 ## Context
 
-(Give some context for the project here. How long did you have to work on it? What specific work/improvements did you contribute to this FE application?)
+We were given just under a week to work on this project. I implemented brand new RESTful routes and logic with CRUD (deactivate instead of delete/destroy) functionality for coupons. I fixed up the frontend to make the correct calls to the backend and display the coupon data for a particular merchant while hiding other unnecessary info.
 
 ## Learning Goals
 
