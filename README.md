@@ -8,7 +8,7 @@ Jaren Garman
 
 ## Abstract
 
-(Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+This app is a demonstration of my abilities to expand on an existing API to add new features, all while following common web conventions like MVC, REST, and CRUD, as well as maintaining the existing styling of the codebase.
 
 ## Installation Instructions
 
