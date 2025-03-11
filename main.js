@@ -249,7 +249,7 @@ function displayMerchantCoupons(coupons, merchant) {
   showingText.innerText = `All Coupons for Merchant #${merchant.id}`
   merchantCouponsCount.innerText = `${merchant.attributes.coupons_count} Coupons | ${merchant.attributes.invoice_coupon_count} Invoices with Coupons`
   show([couponsView, merchantCouponsCount])
-  hide([merchantsView, itemsView, addNewButton])
+  hide([merchantsView, merchantForm, itemsView, addNewButton])
 
   couponsView.innerHTML = ''
 
