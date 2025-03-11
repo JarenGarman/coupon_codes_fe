@@ -80,4 +80,14 @@ My learning goals for this project were to get a deeper understanding of the mod
 
 ## Wins + Challenges
 
-(What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+### Wins
+
+- Learning to use scopes
+- Building my own Postman suite to accompany automated tests
+- Maintaining existing styling
+
+### Challenges
+
+- Initial setup was quite tough
+  - Navigating new migrations
+  - Going back to change migrations when I realized I needed something else
