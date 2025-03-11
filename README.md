@@ -76,7 +76,7 @@ We were given just under a week to work on this project. I implemented brand new
 
 ## Learning Goals
 
-(What were the learning goals of this project? What tech did you work with?)
+My learning goals for this project were to get a deeper understanding of the model/controller relationship and how to take advantage of it to write cleaner code. One of the solutions I found was making us of scopes in place of class methods.
 
 ## Wins + Challenges
 
